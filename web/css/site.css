@@ -166,3 +166,13 @@ a.desc:after {
 input {
     font: 13px Arial,Helvetica,sans-serif;
 }
+
+.searcher {
+    margin-top: 60px;
+}
+
+table.tbl-data {
+    cursor: pointer;
+}
+
+.highlight {  background-color: rgba(24, 158, 81, 0.37);}
