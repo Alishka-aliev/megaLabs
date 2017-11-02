@@ -12,10 +12,6 @@ namespace app\models\agregator;
 
 class Img extends File
 {
+    protected $defaultSrc = 'http://via.placeholder.com/200x200';
 
-
-    public function setTrackId()
-    {
-        // TODO: Implement setTrackId() method.
-    }
 }

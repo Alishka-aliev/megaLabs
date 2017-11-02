@@ -5,21 +5,29 @@
  * Date: 02.11.17
  * Time: 1:21
  */
+
 namespace app\models\agregator;
 
-abstract class File {
+abstract class File
+{
     private $_src; //Путь до картинки
+    private $_trackID; //id необязательный.
+    //по умолчанию. Если вдруг картинки не будет.
+    protected $defaultSrc;
+    // Список расширений файлов
+    protected $extList;
 
     //ID объекта
-    abstract public function setExt;
+     abstract public function setExt();
     /**
      * File constructor.
      * @param $src
      */
-    public function __construct($src)
+    public function __construct($src = null)
     {
-        $this->_src = $src;
+        $this->_src = $src ?: $this->defaultSrc;
     }
+
     /**
      * путь до картинки
      * @return String
@@ -28,4 +36,14 @@ abstract class File {
     {
         return $this->_src;
     }
+
+    /**
+     * @param $trackID
+     */
+    public function setTrackId($trackID)
+    {
+        $this->_trackID = $trackID;
+        // TODO: Implement setTrackId() method.
+    }
+
 }
