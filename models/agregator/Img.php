@@ -10,8 +10,9 @@
 namespace app\models\agregator;
 
 
-class Img extends File
+class Img extends FileObject
 {
+    protected $extList=['png','jpeg','jpg'];
     protected $defaultSrc = 'http://via.placeholder.com/200x200';
 
 }

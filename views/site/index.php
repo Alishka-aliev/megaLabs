@@ -10,7 +10,7 @@ $this->title = 'MegaLabs test task';
     <div class="container">
         <div class="jumbotron">
             <div class="input-group searcher">
-                <input type="text" class="input__control input__input" placeholder="Search ...">
+                <input type="text" class="input__control input__input" name="q" placeholder="Search ...">
                 <span id="searchclear" class="glyphicon glyphicon-remove-circle"></span>
                 <span class="input-group-btn">
                  <button class="btn btn-megafon" type="button">Найти</button>
@@ -21,7 +21,7 @@ $this->title = 'MegaLabs test task';
         </div>
     </div>
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10  col-sm-12 col-md-offset-1">
             <div class="body-content">
                 <div class="row">
                     <div class="col-md-12">
@@ -34,10 +34,7 @@ $this->title = 'MegaLabs test task';
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">excel</a></li>
-
-
                                     <li><a href="#">cvs</a></li>
-
                                     <li><a href="#">txt</a></li>
 
                                 </ul>
@@ -124,4 +121,23 @@ $this->title = 'MegaLabs test task';
 </div>
 
 
+
+<?php
+$autocomplite =<<<AUTOCOMPLITE
+new autoComplete({
+    minChars:1,
+    selector: 'input[name="q"]',
+    source: function(term, response){
+        $.getJSON('/site/search', { q: term }, function(choices){
+          var suggestions = [];
+                for (i=0;i<choices.length;i++)
+                    if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+                response(suggestions);
+         });
+    }
+});
+AUTOCOMPLITE;
+
+$this->registerJs($autocomplite);
+?>
 <?php $this->registerJs("Table.init('.tbl-data');")?>

@@ -124,4 +124,12 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+
+    public function actionSearch() {
+        if (Yii::$app->request->isAjax) {
+            \Yii::$app->response->format = Response::FORMAT_JSON;
+            return ['ФИФ','RIF','11',"ЕТ",'ТУф','MET','FLKG','АДАуц'];
+        }
+    }
 }

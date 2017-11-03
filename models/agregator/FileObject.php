@@ -8,7 +8,7 @@
 
 namespace app\models\agregator;
 
-abstract class File
+abstract class FileObject
 {
     private $_src; //Путь до картинки
     private $_trackID; //id необязательный.
@@ -18,7 +18,8 @@ abstract class File
     protected $extList;
 
     //ID объекта
-     abstract public function setExt();
+    // abstract public function setExt();
+
     /**
      * File constructor.
      * @param $src
@@ -27,7 +28,6 @@ abstract class File
     {
         $this->_src = $src ?: $this->defaultSrc;
     }
-
     /**
      * путь до картинки
      * @return String
@@ -36,14 +36,15 @@ abstract class File
     {
         return $this->_src;
     }
-
     /**
+     * добавим ID
      * @param $trackID
      */
     public function setTrackId($trackID)
     {
         $this->_trackID = $trackID;
-        // TODO: Implement setTrackId() method.
     }
+
+
 
 }

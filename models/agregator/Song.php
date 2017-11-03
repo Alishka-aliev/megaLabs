@@ -5,4 +5,10 @@
  * Date: 03.11.17
  * Time: 0:24
  */
-class
+
+namespace app\models\agregator;
+class Song extends FileObject {
+
+protected $extList=['wav','mp3'];
+
+}
