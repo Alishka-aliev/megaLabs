@@ -19,7 +19,49 @@ $this->title = 'MegaLabs test task';
 
 
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm  btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            Экспорт данных <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">excel</a></li>
+                            <li><a href="#">cvs</a></li>
+                            <li><a href="#">txt</a></li>
+
+                        </ul>
+                    </div>
+                    <a class="btn btn-sm btn-default" href="javascript:void(0);">Добавить в корзину</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm  btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            Экспорт данных <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">excel</a></li>
+                            <li><a href="#">cvs</a></li>
+                            <li><a href="#">txt</a></li>
+
+                        </ul>
+                    </div>
+                    <a class="btn btn-sm btn-default" href="javascript:void(0);">Добавить в корзину</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+
     <div class="row">
         <div class="col-md-10  col-sm-12 col-md-offset-1">
             <div class="body-content">
