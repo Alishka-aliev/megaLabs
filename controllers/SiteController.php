@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
+use yii\httpclient\Client;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -61,7 +62,26 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $get=Yii::$app->request->get('tone');
+        if ($get) {
 
+            $url = 'http://85.143.218.211:9091/tone/10.json';
+            $client = new Client();
+            $response = $client->createRequest()
+                ->setMethod('get')
+                ->setFormat(Client::FORMAT_JSON)
+                ->setUrl($url)
+                ->send();
+            $data = $response->getData();
+
+            var_dump($data);
+
+            $list = [];
+            /*foreach ($data as $item) {
+                $list[]= $item;
+            }*/
+           // return $list;
+        }
         return $this->render('index');
     }
 
@@ -124,4 +144,26 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+
+    public function actionSearch()
+    {
+         if (Yii::$app->request->isAjax) {
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+        $q = Yii::$app->request->get('q');
+        $url = 'http://85.143.218.211:9090/search/';
+        $client = new Client();
+        $response = $client->createRequest()
+            ->setMethod('get')
+            ->setUrl($url)
+            ->setData(['query' => $q])
+            ->send();
+        $data = $response->getData();
+        $list = [];
+        foreach ($data as $item) {
+            $list[]=(string)$item;
+        }
+        return $list;
+    }
+     }
 }
