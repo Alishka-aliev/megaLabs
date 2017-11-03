@@ -21,9 +21,9 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<!--    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="/js/table.js"></script>
+-->
 </head>
 <body>
 <?php $this->beginBody() ?>

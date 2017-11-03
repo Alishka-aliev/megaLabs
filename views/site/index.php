@@ -122,3 +122,6 @@ $this->title = 'MegaLabs test task';
         </div>
     </div>
 </div>
+
+
+<?php $this->registerJs("Table.init('.tbl-data');")?>
