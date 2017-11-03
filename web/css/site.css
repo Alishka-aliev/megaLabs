@@ -176,3 +176,8 @@ table.tbl-data {
 }
 
 .highlight {  background-color: rgba(24, 158, 81, 0.37);}
+
+.tbl-data td.midle{
+    text-align: center;
+    vertical-align: middle;
+}

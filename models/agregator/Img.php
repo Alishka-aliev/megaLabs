@@ -12,6 +12,7 @@ namespace app\models\agregator;
 
 class Img extends FileObject
 {
+    const DEFAULT_SRC='http://via.placeholder.com/200x200';
     protected $extList=['png','jpeg','jpg'];
     protected $defaultSrc = 'http://via.placeholder.com/200x200';
 
