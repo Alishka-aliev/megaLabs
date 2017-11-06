@@ -19,10 +19,13 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'css/dataurl.css',
         'css/auto-complete.css',
     ];
     public $js = [
+        'js/App.js',
         'js/table.js',
+        'js/pace.min.js',
         'js/auto-complete.min.js'
     ];
     public $depends = [

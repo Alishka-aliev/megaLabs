@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\models\Cart;
 
 AppAsset::register($this);
 ?>
@@ -21,9 +22,11 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-<!--    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
--->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!--    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    -->
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -31,7 +34,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Html::img('@web/img/logo.png', ['alt'=>'Мегафон','width'=>'100']),
+        'brandLabel' => Html::img('@web/img/logo.png', ['alt' => 'Мегафон', 'width' => '100']),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-default navbar-fixed-top',
@@ -41,8 +44,8 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'encodeLabels' => false,
         'items' => [
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => ' <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Корзина (0)',  'url' => ['/cart/index']],
+
+            ['label' => ' <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Корзина (<span id="cartCount">' . (!empty(Yii::$app->session->get(Cart::DEFAULT_SESSION_NAME)) ? count(Yii::$app->session->get(Cart::DEFAULT_SESSION_NAME)) : 0) . '</span>)', 'url' => ['/cart/index']],
 
 
         ],

@@ -16,26 +16,36 @@ abstract class FileObject
     protected $defaultSrc;
     // Список расширений файлов
     protected $extList;
+    //Url
+    protected $serviceUrl = "";
 
     //ID объекта
     // abstract public function setExt();
 
-    /**
+    /** Сразу- проверка на валидность адресса, если все нормально, то оставляем иначе заменим Дефолтным значением.
      * File constructor.
      * @param $src
      */
     public function __construct($src = null)
     {
-        $this->_src = $src ?: $this->defaultSrc;
+        if ($src) {
+            $http = HttpRequest::getInstance();
+            $responce = $http->request($this->serviceUrl . $src);
+            $this->_src = $http->isValid($responce->getStatusCode()) ? $this->serviceUrl . $src :  $this->defaultSrc;
+        } else {
+            $this->_src = $this->defaultSrc;
+        }
     }
+
     /**
      * путь до картинки
      * @return String
      */
-    public function getSrc(): String
+    public function getSrc()
     {
         return $this->_src;
     }
+
     /**
      * добавим ID
      * @param $trackID

@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .wrap {
@@ -181,3 +182,24 @@ table.tbl-data {
     text-align: center;
     vertical-align: middle;
 }
+.tbl-data td.midle-left{
+    text-align: left;
+    vertical-align: middle;
+}
+
+.tbl-data td img{
+    max-width: 140px;
+}
+
+.tbl-data td .title{
+    font-size: 15px;
+}
+
+.tbl-data td .values{
+    font-size: 15px;
+    font-weight:bold;
+}
+.tbl-data td a:hover,.tbl-data td a:focus{
+    text-decoration: none;
+
+ }

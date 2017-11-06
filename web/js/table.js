@@ -8,6 +8,9 @@ Table = {
         this.OBJ_NAME = selector;
         highlight.on(this.getObj("td"), 'highlight');
         check.on(this.getObj("td"));
+        $(this.OBJ_NAME +' input.chckAll').on('click',function(){
+            $('input:checkbox').prop('checked', this.checked);
+        });
     },
     getObj: function (tag) {
         tag = typeof tag !== 'undefined' ? tag : "";
@@ -15,7 +18,6 @@ Table = {
         return $(obj + " " + tag);
     }
 }
- 
 //Подсветка.
 var highlight = {
     on: function ($obj, cls) {
@@ -34,7 +36,7 @@ var highlight = {
 var check = {
     on: function ($obj) {
         $obj.click(function () {
-            var selected = $(this).find('input');
+            var selected = $(this).find('input[type="text"]');
             selected.trigger('click');
         });
     }
