@@ -184,14 +184,12 @@ class SiteController extends Controller
     {
         if (Yii::$app->request->isAjax) {
             \Yii::$app->response->format = Response::FORMAT_JSON;
-            $data = Yii::$app->request->post('data');
-
-            $eport = new PhpExcelTones($data);
+            $data = Yii::$app->request->get('data');
+            $report = new PhpExcelTones($data);
             ob_start();
-            $eport->export();
+            $report->export();
             $xlsData = ob_get_contents();
             ob_end_clean();
-
             $response = array(
                 'resp' => true,
                 'file' => "data:application/vnd.ms-excel;base64," . base64_encode($xlsData)

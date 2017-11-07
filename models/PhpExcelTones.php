@@ -69,21 +69,21 @@ class  PhpExcelTones
                 $sheet->getRowDimension($j)->setRowHeight(70);
                 $sheet->setCellValue($head['number']['column'] .$j, ($i - 1));
                 // Выводим Наименование
-                $sheet->setCellValue($head['name']['column'] . $j, ($toneList[$i - 2])->getName());
+                $sheet->setCellValue($head['name']['column'] . $j,  $toneList[$i - 2] ->getName());
                 // Выводим Код трека
-                $sheet->setCellValue($head['code']['column'] . $j, ($toneList[$i - 2])->getCode());
+                $sheet->setCellValue($head['code']['column'] . $j, $toneList[$i - 2]->getCode());
 
                 // Выводим Исполнитель
-                $sheet->setCellValue($head['artist']['column'] . $j, ($toneList[$i - 2])->getArtist());
+                $sheet->setCellValue($head['artist']['column'] . $j, $toneList[$i - 2]->getArtist());
 
                 // Выводим Период
-                $sheet->setCellValue($head['period']['column'] . $j, ($toneList[$i - 2])->getPeriod());
+                $sheet->setCellValue($head['period']['column'] . $j, $toneList[$i - 2]->getPeriod());
 
                 // Выводим Цена
-                $sheet->setCellValue($head['price']['column'] . $j, ($toneList[$i - 2])->getPrice());
+                $sheet->setCellValue($head['price']['column'] . $j, $toneList[$i - 2]->getPrice());
 
                 // Выводим Короткий код
-                $sheet->setCellValue($head['shortCode']['column'] . $j, ($toneList[$i - 2])->getShortCode());
+                $sheet->setCellValue($head['shortCode']['column'] . $j, $toneList[$i - 2]->getShortCode());
 
                 //Вставка картинки
                 $objDrawing = new \PHPExcel_Worksheet_MemoryDrawing();
@@ -100,14 +100,14 @@ class  PhpExcelTones
                 $objDrawing->setWorksheet($sheet);
 
                 // Контракты
-                $contracts = ($toneList[$i - 2])->getContracts();
+                $contracts = $toneList[$i - 2]->getContracts();
                 $txt="";
                 foreach ($contracts as $contract) {
                     $txt.= $contract->getName()." (".$contract->getMasterShare()."-".$contract->getAuthorShare().")\r\n";
                 }
                 $sheet->setCellValue($head['contract']['column'] . $j, $txt);
                 // Платформа
-                $platforms = ($toneList[$i - 2])->getPlatforms();
+                $platforms = $toneList[$i - 2]->getPlatforms();
                 $txt="";
                 foreach ($platforms as $platform) {
                     $txt.=$platform->getName()." (".$platform->getPeriod().")\r\n";
