@@ -31,6 +31,7 @@ use \yii\bootstrap\Html;
             <p class="title">Исполнитель: <span class="values"><?= $tone->getArtist() ?></span></p>
             <p class="title">Название: <span class="values"><?= $tone->getName() ?></span></p>
             <p class="title">Цена: <span class="values"><?= $tone->getPrice() ?></span></p>
+            <p class="title">Период: <span class="values"><?= $tone->getPeriod() ?></span></p>
             <p class="title">Короткий код: <span class="values"><?= $tone->getShortCode() ?></span></p>
         </td>
         <td class="midle-left">

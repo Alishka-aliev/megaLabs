@@ -28,7 +28,7 @@ $this->title = 'Корзина';
                             <tr>
                                 <th><input type="checkbox" class="chckAll"></th>
                                 <th style="width: 10%;">Картинка</th>
-                                <th>Период</th>
+                                <th>информация</th>
                                 <th>Контракты</th>
                                 <th>Платформы</th>
                             </tr>
